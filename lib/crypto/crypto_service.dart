@@ -6,7 +6,7 @@ class CryptoService {
   CanisterActor? get actor => _agentFactory?.actor;
 
   final String canisterId = 'bkyz2-fmaaa-aaaaa-qaaaq-cai';
-  final String url = 'https://47af-128-61-160-94.ngrok-free.app';
+  final String url = 'https://8c0e-170-140-104-116.ngrok-free.app';
 
   Future<void> setAgent(
       {String? newCanisterId,
@@ -14,7 +14,6 @@ class CryptoService {
       String? newUrl,
       Identity? newIdentity,
       bool? debug}) async {
-    print('Setting agent');
     _agentFactory ??= await AgentFactory.createAgent(
       canisterId: newCanisterId ?? canisterId,
       url: newUrl ?? url,
@@ -36,6 +35,7 @@ class CryptoService {
   Future<dynamic> balanceOf(String who) async {
     try {
       print('Getting balance');
+      print(who);
       var res = await actor?.getFunc(CryptoMethod.balanceOf)?.call([who]);
       print('Got balance');
 

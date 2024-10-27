@@ -45,6 +45,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       // appBar: toolbarWidget(showBack: true),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -221,9 +222,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           showCupertinoModalBottomSheet(
                             context: context,
                             builder: (_) => CalculatorResultsModalWidget(
-                              distance: _distanceTravelled,
-                              vehicle: _selectedMode,
-                            ),
+                                distance: _distanceTravelled,
+                                vehicle: _selectedMode,
+                                unit: _selectedUnit == 0 ? 'km' : 'mi'),
                           );
                         },
                         child: Container(

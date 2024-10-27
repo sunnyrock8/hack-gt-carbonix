@@ -52,7 +52,7 @@ class LeaderboardPosition extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.w600,
-                color: active ? ThemeColors.darkGreen : ThemeColors.text,
+                color: active ? Colors.white : ThemeColors.text,
               ),
             ),
             active
@@ -87,15 +87,9 @@ class Leaderboard extends StatelessWidget {
         SizedBox(height: 10.0),
         LeaderboardPosition(
           position: 2,
-          name: 'Pranjali Patel',
+          name: 'Arnav Kumar',
           savedEmissions: 52.5,
-        ),
-        SizedBox(height: 10.0),
-        LeaderboardPosition(
-          position: 3,
-          name: 'Neel Nayar',
-          savedEmissions: 49.9,
-        ),
+        )
       ],
     );
   }

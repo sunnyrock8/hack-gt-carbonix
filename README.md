@@ -1,4 +1,4 @@
-# Carbonix
+# CarbonCents
 
 ## Inspiration
 
@@ -26,7 +26,7 @@ As high school students, a lot of aspects of this project were entirely unfamili
 
 We realised early on that spending too much time on design or prototyping was not wise, especially in a time-constraint scenario like this. We decided to enact two practices that would help us not only speed up the process but ensure that it is the best possible design, as mentioned in the Frontend Section. The first method is the build and test with a quick 'turnaround time'. This helped us deal with errors and changes much faster. The second was making a single page in multiple passes.
 
-## What's next for Carbonix
+## What's next for CarbonCents
 
 There are a few improvements in terms of scalability that we feel would help us move towards universal access and also improve the user experience. We are looking forward to gamifying our UI even further, with these design changes being motivated by user surveys to promote engagement even further. We also hope to expand into more cities and more travel modes, and to partner with governments to get live data for transport services to provide real-time updates.
 

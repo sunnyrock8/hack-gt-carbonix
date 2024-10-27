@@ -35,6 +35,7 @@ class _CheckoutModalWidgetState extends State<CheckoutModalWidget> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: SafeArea(
         child: DefaultTextStyle(
           style: Theme.of(context).textTheme.bodyMedium!,
@@ -44,7 +45,7 @@ class _CheckoutModalWidgetState extends State<CheckoutModalWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${widget.cart.getTotal()} CBRX',
+                  '${widget.cart.getTotal()} CCTS',
                   style: TextStyle(
                     fontSize: 35.0,
                     fontWeight: FontWeight.w700,
@@ -100,7 +101,7 @@ class _CheckoutModalWidgetState extends State<CheckoutModalWidget> {
                                     child: ListBody(
                                       children: <Widget>[
                                         Text(
-                                            '${widget.cart.getTotal()} CBRX were transferrred successfully and your order is confirmed.'),
+                                            '${widget.cart.getTotal()} CCTS were transferrred successfully and your order is confirmed.'),
                                       ],
                                     ),
                                   ),
@@ -138,7 +139,7 @@ class _CheckoutModalWidgetState extends State<CheckoutModalWidget> {
                             child: Text(
                               _transferringCrypto
                                   ? 'Paying...'
-                                  : 'Pay ${widget.cart.getTotal()} CBRX securely',
+                                  : 'Pay ${widget.cart.getTotal()} CCTS securely',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,

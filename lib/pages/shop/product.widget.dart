@@ -38,7 +38,7 @@ class ProductWidget extends StatelessWidget {
               ),
             ),
             Text(
-              '${product.price} CBRX' +
+              '${product.price} CCTS' +
                   (product.quantity != null && product.quantity! > 0
                       ? ' x ${product.quantity}'
                       : ''),

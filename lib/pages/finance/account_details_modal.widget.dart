@@ -11,6 +11,7 @@ class AccountDetailsModalWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: SafeArea(
         child: DefaultTextStyle(
           style: Theme.of(context).textTheme.bodyMedium!,
@@ -29,7 +30,7 @@ class AccountDetailsModalWidget extends StatelessWidget {
                 SizedBox(
                   width: screenWidth * 0.75,
                   child: const Text(
-                    'See how your account and CBRX have changed with time',
+                    'See how your account and CCTS have changed with time',
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400),
                   ),
@@ -54,7 +55,7 @@ class AccountDetailsModalWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '120.2 CBRX',
+                        '120.2 CCTS',
                         style: TextStyle(
                           fontSize: 25.0,
                           fontWeight: FontWeight.w700,

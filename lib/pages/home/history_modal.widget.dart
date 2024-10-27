@@ -26,6 +26,7 @@ class HistoryModalWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: SafeArea(
         child: DefaultTextStyle(
           style: Theme.of(context).textTheme.bodyMedium!,
@@ -191,7 +192,7 @@ class HistoryModalWidget extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          '${trip.creditsEarned}\nCBRX',
+                          '${trip.creditsEarned}\nCCTS',
                           style: const TextStyle(
                             fontSize: 22.0,
                             color: Colors.white,

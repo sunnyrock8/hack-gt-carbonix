@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:carbonix/theme/theme.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
@@ -44,7 +45,8 @@ class _AssistantPageState extends State<AssistantPage> {
 
     var headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer API_KEY'
+      'Authorization':
+          'Bearer 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'
     };
     var data = json.encode({
       "model": "gpt-4o-mini",
@@ -57,7 +59,7 @@ class _AssistantPageState extends State<AssistantPage> {
                 Time taken to travel from Tech Square to Atlanta Airpot by car: 16 minutes.
                 CO2 emissions for the drive from Tech Square to Atlanta Airport: 4.28 kg.
                 Time taken to travel from Tech Square to Atlanta Airpot by MARTA: 2.1 kg.
-                Carbonix credits gained by choosing the MARTA over a private car: \$5 (the value of a sustainably maunfactured pen on the Carbonix marketplace)
+                CarbonCents credits gained by choosing the MARTA over a private car: \$5 (the value of a sustainably maunfactured pen on the CarbonCents marketplace)
 
                 Travel distance from Tech Square to West Village: 1.4 mi.
                 Time taken to travel from Tech Square to West Village by car: 7 minutes.
@@ -117,6 +119,7 @@ class _AssistantPageState extends State<AssistantPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: Chat(
         messages: _messages,
         onSendPressed: _handleSendPressed,

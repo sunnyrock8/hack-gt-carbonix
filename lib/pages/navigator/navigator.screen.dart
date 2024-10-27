@@ -29,6 +29,7 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: Stack(
         children: [
           _screens[_pageIndex],

@@ -7,13 +7,15 @@ class History extends StatelessWidget {
   final Trip trip;
   final List<Station> _stationsList = [
     Station(
-        id: '2c089d5d-dd72-412c-9266-4ad9b2e4251c',
-        name: 'Hartsfield-Jackson Airport',
-        type: 'Train'),
+      id: '6f2dd678-9436-4cfa-89af-a0e02c1931e1',
+      name: 'Hartsfield-Jackson Airport',
+      type: 'Train',
+    ),
     Station(
-        id: '7e54d74f-0ad6-4b79-b937-679e165610c9',
-        name: 'Tech Square',
-        type: 'Train')
+      id: '6f2dd678-9436-4cfa-89af-a0e02c1931e1',
+      name: 'Tech Square',
+      type: 'Train',
+    )
   ];
 
   History({super.key, required this.trip});
@@ -68,7 +70,7 @@ class History extends StatelessWidget {
             //       ),
             //       child: const Center(
             //         child: Text(
-            //           '+0.002 CBRX',
+            //           '+0.002 CCTS',
             //           textAlign: TextAlign.center,
             //           style: TextStyle(
             //             fontSize: 16.0,

@@ -46,6 +46,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,

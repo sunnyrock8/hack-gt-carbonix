@@ -16,6 +16,7 @@ class ProductModalWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       body: SafeArea(
         child: DefaultTextStyle(
           style: Theme.of(context).textTheme.bodyMedium!,

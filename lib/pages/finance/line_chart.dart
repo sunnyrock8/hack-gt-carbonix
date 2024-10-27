@@ -165,7 +165,7 @@ class _LineChartSampleState extends State<LineChartSample> {
                 height: 37,
               ),
               const Text(
-                'CBRX Price',
+                'CCTS Price',
                 style: TextStyle(
                   color: ThemeColors.text,
                   fontSize: 32,

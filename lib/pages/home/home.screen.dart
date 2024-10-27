@@ -116,7 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       // appBar: toolbarWidget(showBack: true),
+
       body: ShakeGesture(
         onShake: () {
           if (_showQuotes) return;

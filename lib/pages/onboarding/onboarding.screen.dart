@@ -33,10 +33,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           scaleController.reverse();
-          Navigator.pushReplacement(
-              context,
-              PageTransition(
-                  type: PageTransitionType.fade, child: const SignupScreen()));
+          Navigator.of(context).push(
+              MaterialWithModalsPageRoute(builder: (_) => NavigatorScreen()));
         }
       });
     rippleAnimation =
@@ -57,9 +55,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
       String? uid = await _authenticationService.getUid();
       print(uid);
 
-      if (uid != null)
-        Navigator.pushReplacement(context,
-            MaterialWithModalsPageRoute(builder: (_) => NavigatorScreen()));
+      // if (uid != null)
+      // Navigator.pushReplacement(context,
+      //     MaterialWithModalsPageRoute(builder: (_) => NavigatorScreen()));
     });
   }
 
@@ -92,7 +90,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                   child: Text(
                     "Reduce",
                     style: TextStyle(
-                        color: Color(0xFFC4DC34),
+                        color: Color(0xFF85e098),
                         fontSize: 38,
                         fontFamily: 'Nohemi',
                         fontWeight: FontWeight.w500),
@@ -158,7 +156,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                   child: Text(
                     "Rewarded",
                     style: TextStyle(
-                        color: Color(0xFFC4DC34),
+                        color: Color(0xFF85e098),
                         fontSize: 38,
                         fontFamily: 'Nohemi',
                         fontWeight: FontWeight.w500),
@@ -292,10 +290,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                         child: SizedBox(
                           height: 37,
                           width: 37,
-                          child: SvgPicture.asset(
-                            "images/white_icon.svg",
-                            colorFilter: const ColorFilter.mode(
-                                Colors.white, BlendMode.srcIn),
+                          child: Icon(
+                            Icons.chevron_right,
+                            size: 30.0,
+                            color: Colors.white,
                           ),
                         ),
                       ),

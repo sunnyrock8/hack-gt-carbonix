@@ -43,7 +43,7 @@ class TransactionWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${transaction.amount} CBRX',
+                '${transaction.amount} CCTS',
                 style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.w500,

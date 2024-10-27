@@ -102,6 +102,7 @@ class _ShopScreenState extends State<ShopScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       // appBar: toolbarWidget(showBack: true),
       body: SingleChildScrollView(
         child: SafeArea(

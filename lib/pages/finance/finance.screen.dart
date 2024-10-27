@@ -45,6 +45,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: ThemeColors.blue,
       // appBar: toolbarWidget(showBack: true),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -134,7 +135,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
                                   width: screenWidth * 0.5 - 60,
                                   child: Text(
                                     balanceLoaded
-                                        ? '$totalBalance CBRX'
+                                        ? '$totalBalance CCTS'
                                         : '...',
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
@@ -151,7 +152,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
                           width: screenWidth * 0.5 - 30,
                           height: (screenWidth * 0.5 - 30) * 0.6,
                           decoration: const BoxDecoration(
-                            color: ThemeColors.blue,
+                            color: Colors.white,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           ),
@@ -168,7 +169,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
                                     style: TextStyle(
                                       fontSize: 25.0,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.white,
+                                      color: ThemeColors.text,
                                     ),
                                   ),
                                 ),

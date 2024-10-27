@@ -16,8 +16,9 @@ class AuthenticationService {
   }
 
   Future<String?> getUid() async {
-    String? userId = await storage.read(key: 'user-id');
-    return userId;
+    // String? userId = await storage.read(key: 'user-id');
+    // return userId;
+    return 'abcd';
   }
 
   Future<void> logout() async {
