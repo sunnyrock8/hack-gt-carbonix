@@ -52,8 +52,7 @@ class _AssistantPageState extends State<AssistantPage> {
 
     var headers = {
       'Content-Type': 'application/json',
-      'Authorization':
-          'Bearer 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'
+      'Authorization': 'Bearer OPENAI_API_KEY'
     };
     var data = json.encode({
       "model": "gpt-4o-mini",
