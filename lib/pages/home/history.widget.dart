@@ -7,13 +7,13 @@ class History extends StatelessWidget {
   final Trip trip;
   final List<Station> _stationsList = [
     Station(
-      id: '6f2dd678-9436-4cfa-89af-a0e02c1931e1',
-      name: 'Hartsfield-Jackson Airport',
+      id: '63a623d9-91d0-465b-bcd7-50d91bf0eb3e',
+      name: 'Newark Liberty International Airport',
       type: 'Train',
     ),
     Station(
-      id: '6f2dd678-9436-4cfa-89af-a0e02c1931e1',
-      name: 'Tech Square',
+      id: '182a1502-c352-47b1-aec2-e0c2fc29467f',
+      name: 'College Avenue',
       type: 'Train',
     )
   ];

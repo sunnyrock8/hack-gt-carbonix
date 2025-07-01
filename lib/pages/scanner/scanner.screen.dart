@@ -106,6 +106,10 @@ class _ScannerScreenState extends State<ScannerScreen> {
                 },
                 (e) {
                   print(e);
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
                 },
                 () {},
               );
@@ -116,7 +120,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
             break;
           }
         },
-        overlay: Column(
+        overlayBuilder: (context, _) => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(

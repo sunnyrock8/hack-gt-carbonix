@@ -5,7 +5,7 @@ import 'package:carbonix/theme/theme.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:flutter_chat_core/flutter_chat_core.dart' as chat_core;
 
 String randomString() {
   final random = Random.secure();
@@ -21,31 +21,39 @@ class AssistantPage extends StatefulWidget {
 }
 
 class _AssistantPageState extends State<AssistantPage> {
-  final _user = const types.User(id: '339286c8-2e38-457a-b8d5-b2092e579a7a');
-  final _agent = const types.User(id: 'b8ecf8ab-2356-4dbf-9ffb-51e9f54b0761');
+  final _user = const chat_core.User(
+      id: '339286c8-2e38-457a-b8d5-b2092e579a7a', name: 'User');
+  final _agent = const chat_core.User(
+      id: 'b8ecf8ab-2356-4dbf-9ffb-51e9f54b0761', name: 'Assistant');
+  final chat_core.InMemoryChatController _chatController =
+      chat_core.InMemoryChatController();
+
+  @override
+  void dispose() {
+    _chatController.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
-
-    _addMessage(
-      types.TextMessage(
-        author: _user,
-        text: 'Hello',
+    _chatController.insertMessage(
+      chat_core.TextMessage(
         id: randomString(),
-        createdAt: DateTime.now().millisecondsSinceEpoch,
+        authorId: _user.id,
+        createdAt: DateTime.now().toUtc(),
+        text: 'Hello',
       ),
     );
   }
 
-  List<types.TextMessage> _messages = [];
-
-  void _sendToChatGPT(List<types.TextMessage> messages) async {
+  void _sendToChatGPT(chat_core.TextMessage message) async {
     print('Sending to chatgpt');
 
     var headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer {{API_KEY}}'
+      'Authorization':
+          'Bearer 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'
     };
     var data = json.encode({
       "model": "gpt-4o-mini",
@@ -66,10 +74,12 @@ class _AssistantPageState extends State<AssistantPage> {
                 The user will tell you where they want to go and you will evaluate the options of car and MARTA for them, focusing on sustainability and explaining to them the advantage of taking the MARTA. If data for the MARTA is not available, suggest that the user use the car. Limit your responses to make them short. Hhighlight the recommended choice clearly at the top and then give a short explanation.
               """
         },
-        ...messages.map((message) => {
-              "role": message.author.id == _user.id ? "user" : "assistant",
-              "content": message.text,
-            })
+        ..._chatController.messages
+            .whereType<chat_core.TextMessage>()
+            .map((message) => {
+                  "role": message.authorId == _user.id ? "user" : "assistant",
+                  "content": message.text,
+                })
       ]
     });
     var dio = Dio();
@@ -83,36 +93,27 @@ class _AssistantPageState extends State<AssistantPage> {
     );
 
     if (response.statusCode == 200) {
-      final agentResponse = types.TextMessage(
-        author: _agent,
-        createdAt: DateTime.now().millisecondsSinceEpoch,
+      final agentResponse = chat_core.TextMessage(
         id: randomString(),
+        authorId: _agent.id,
+        createdAt: DateTime.now().toUtc(),
         text: response.data['choices'][0]['message']['content'],
       );
-      setState(() {
-        _messages.insert(0, agentResponse);
-      });
+      _chatController.insertMessage(agentResponse);
     } else {
       print(response.statusMessage);
     }
   }
 
-  void _addMessage(types.TextMessage message) {
-    setState(() {
-      _messages.insert(0, message);
-    });
-    _sendToChatGPT([..._messages, message]);
-  }
-
-  void _handleSendPressed(types.PartialText message) {
-    final textMessage = types.TextMessage(
-      author: _user,
-      createdAt: DateTime.now().millisecondsSinceEpoch,
+  void _handleMessageSend(String text) {
+    final textMessage = chat_core.TextMessage(
       id: randomString(),
-      text: message.text,
+      authorId: _user.id,
+      createdAt: DateTime.now().toUtc(),
+      text: text,
     );
-
-    _addMessage(textMessage);
+    _chatController.insertMessage(textMessage);
+    _sendToChatGPT(textMessage);
   }
 
   @override
@@ -120,9 +121,14 @@ class _AssistantPageState extends State<AssistantPage> {
     return Scaffold(
       backgroundColor: ThemeColors.blue,
       body: Chat(
-        messages: _messages,
-        onSendPressed: _handleSendPressed,
-        user: _user,
+        chatController: _chatController,
+        currentUserId: _user.id,
+        onMessageSend: _handleMessageSend,
+        resolveUser: (id) async {
+          if (id == _user.id) return _user;
+          if (id == _agent.id) return _agent;
+          return null;
+        },
       ),
     );
   }

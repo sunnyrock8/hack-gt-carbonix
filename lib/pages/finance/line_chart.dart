@@ -91,7 +91,7 @@ class _LineChart extends StatelessWidget {
     }
 
     return SideTitleWidget(
-      axisSide: meta.axisSide,
+      meta: meta,
       space: 10,
       child: text,
     );
@@ -119,7 +119,7 @@ class _LineChart extends StatelessWidget {
 
   LineChartBarData get lineChartBarData1_1 => LineChartBarData(
         isCurved: true,
-        color: ThemeColors.blue,
+        color: ThemeColors.green,
         barWidth: 3,
         isStrokeCapRound: true,
         dotData: const FlDotData(show: false),

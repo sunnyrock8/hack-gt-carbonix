@@ -36,12 +36,12 @@ class _ScanDetailsModalWidgetState extends State<ScanDetailsModalWidget> {
 
   List<Station> _stationsList = [
     Station(
-        id: '2c089d5d-dd72-412c-9266-4ad9b2e4251c',
-        name: 'Hartsfield-Jackson Airport',
+        id: '63a623d9-91d0-465b-bcd7-50d91bf0eb3e',
+        name: 'Newark Liberty International Airport',
         type: 'Train'),
     Station(
-        id: '7e54d74f-0ad6-4b79-b937-679e165610c9',
-        name: 'Tech Square',
+        id: '182a1502-c352-47b1-aec2-e0c2fc29467f',
+        name: 'College Avenue',
         type: 'Train')
   ];
   List<Product> _productsList = [

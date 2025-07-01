@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
+  await EasyLocalization.ensureInitialized();
 
   runApp(
     MultiProvider(
@@ -16,7 +18,12 @@ void main() async {
         ChangeNotifierProvider(create: (_) => CartModel()),
         ChangeNotifierProvider(create: (_) => UserDetailsModel()..fetchTrips())
       ],
-      child: const MyApp(),
+      child: EasyLocalization(
+        supportedLocales: [Locale('en'), Locale('hi'), Locale('mr')],
+        path: 'assets/translations',
+        fallbackLocale: Locale('en'),
+        child: const MyApp(),
+      ),
     ),
   );
 }
@@ -37,6 +44,9 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Nohemi',
         ),
         home: const OnBoardingScreen(),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
       ),
     );
   }
